@@ -10,9 +10,8 @@ class Entity {
    * (в зависимости от того, что наследуется от Entity)
    * */
   static list(data, callback = f => f ) {
-    console.log(data);
     return createRequest({
-      url: `${this.HOST}${this.URL}`,
+      url: this.HOST + this.URL,
       responseType: 'json',
       data,
       method: 'GET',
@@ -26,13 +25,11 @@ class Entity {
    * что наследуется от Entity)
    * */
   static create( data, callback = f => f ) {
-    console.log(data);
     return createRequest({
-      url: `${this.HOST}${this.URL}`,
+      url: this.HOST + this.URL,
       responseType: 'json',
-      data,
+      data: Object.assing({_method:'PUT'}, data),
       method: 'POST',
-      _method:'PUT',
       callback
     });
   }
@@ -42,9 +39,8 @@ class Entity {
    * (в зависимости от того, что наследуется от Entity)
    * */
   static get( id = '', data, callback = f => f ) {
-    console.log(data);
     return createRequest({
-      url: `${this.HOST}${this.URL}`,
+      url: this.HOST + this.URL,
       responseType: 'json',
       data: Object.assing({id: id}, data),
       method: 'GET',
@@ -57,13 +53,11 @@ class Entity {
    * (в зависимости от того, что наследуется от Entity)
    * */
   static remove( id = '', data, callback = f => f ) {
-    console.log(data);
     return createRequest({
-      url: `${this.HOST}${this.URL}`,
+      url: this.HOST + this.URL,
       responseType: 'json',
-      data: Object.assing({id: id}, data),
+      data: Object.assing({id: id, _method: 'DELETE'}, data),
       method: 'POST',
-      _method: 'DELETE',
       callback
     });
   }

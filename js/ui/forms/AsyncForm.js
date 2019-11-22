@@ -14,7 +14,7 @@ class AsyncForm {
    * */
   constructor( element ) {
     if(!element) {
-      console.error('Передан пустой элемент');
+      throw new Error('Передан пустой элемент');
     } else {
       this.element = element;
       this.registerEvents();
@@ -26,7 +26,7 @@ class AsyncForm {
    * вызывает метод submit()
    * */
   registerEvents() {
-    this.element.addEventListener('submit', e => {      
+    this.element.addEventListener('submit', e => {
       if(this.element.checkValidity()) {
         e.preventDefault();
         this.submit();
@@ -46,8 +46,8 @@ class AsyncForm {
     let formData = new FormData(this.element);
     let entries = formData.entries();
 
-    for (let item of entries) {      
-      let key = item[0]; 
+    for (let item of entries) {
+      let key = item[0];
       let value = item[1];
       data[key] = value;
     }

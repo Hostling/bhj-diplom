@@ -14,7 +14,7 @@ class AccountsWidget {
    * */
   constructor( element ) {
     if (!element) {
-      console.error('Передан пустой элемент');
+      throw new Error('Передан пустой элемент');
     }
     this.element = element;
     this.registerEvents();
@@ -85,7 +85,7 @@ class AccountsWidget {
   onSelectAccount( element ) {
     let accounts = this.element.querySelectorAll('li.account');
     accounts.forEach((elem) => elem.classList.remove('active'));
-    
+
     element.classList.add('active');
     App.showPage('transactions', { account_id: element.dataset.id });
   }

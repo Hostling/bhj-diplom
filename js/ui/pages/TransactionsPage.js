@@ -12,7 +12,7 @@ class TransactionsPage {
    * */
   constructor( element ) {
     if (!element) {
-      console.error('Передан пустой элемент');
+      throw new Error('Передан пустой элемент');
     }
     this.element = element;
     this.registerEvents();
@@ -151,16 +151,9 @@ class TransactionsPage {
     let hours = newDate.getHours();
     let minutes = newDate.getMinutes();
 
-    function editTime(whole) {
-      if (whole < 10) {
-        return `0${whole}`;
-      } else {
-        return whole;
-      }
-    }
-    return `${day} ${month} ${year} г. в ${editTime(hours)}:${editTime(
-      minutes
-    )}`;
+    let editTime = (whole) => whole < 10 ? `0${whole}` : whole;
+
+    return `${day} ${month} ${year} г. в ${editTime(hours)}:${editTime(minutes)}`;
   }
 
   /**
