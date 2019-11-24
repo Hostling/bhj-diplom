@@ -14,7 +14,7 @@ const createRequest = (options = {}) => {
 
   if(options.method == 'GET'){
       if(options.data) {
-        options.url += '/?';
+        options.url += '?';
         for(let key in options.data) {
           options.url += `${key}=${options.data[key]}&`;
         }
