@@ -56,7 +56,7 @@ class TransactionsPage {
     if (!this.lastOptions) {
       return;
     }
-    if (!confirm('Удалить счет?')) {
+    if (confirm('Удалить счет?')) {
       Account.remove(this.lastOptions.account_id, {}, (err, response) => {
       if (response.success == true) {
         this.clear();
