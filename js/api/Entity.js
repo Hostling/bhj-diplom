@@ -28,7 +28,7 @@ class Entity {
     return createRequest({
       url: this.HOST + this.URL,
       responseType: 'json',
-      data: Object.assing({_method:'PUT'}, data),
+      data: Object.assign({_method:'PUT'}, data),
       method: 'POST',
       callback
     });
@@ -42,7 +42,7 @@ class Entity {
     return createRequest({
       url: this.HOST + this.URL,
       responseType: 'json',
-      data: Object.assing({id: id}, data),
+      data: Object.assign({id: id}, data),
       method: 'GET',
       callback
     });
@@ -56,7 +56,7 @@ class Entity {
     return createRequest({
       url: this.HOST + this.URL,
       responseType: 'json',
-      data: Object.assing({id: id, _method: 'DELETE'}, data),
+      data: Object.assign({id: id, _method: 'DELETE'}, data),
       method: 'POST',
       callback
     });
